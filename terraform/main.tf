@@ -13,8 +13,6 @@ provider "aws" {
   default_tags {
     tags = {
       Project     = "SmritiSathi"
-      Student     = "Yogesh"
-      Course      = "INT378"
       Owner       = var.owner_email
       Environment = var.environment
     }

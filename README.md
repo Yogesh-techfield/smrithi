@@ -1,13 +1,9 @@
 # SmritiSathi (স্মৃতিসাথী)
 ### AI-Based Cognitive Gaming and Memory Assistance Platform for Elderly Dementia Patients in North Eastern Region (NER)
 
-**Course Code**: INT 378: Advancements in Cloud and DevOps  
-**Student Name**: Yogesh  
-**Registration Number**: 12307093  
-**Section**: K4O2311  
-**Supervisor**: Ms. Arshiya  
-**Institution**: Lovely Professional University  
-**Hackathon Problem ID**: SIH26003 (MDoNER)  
+**Platform**: SmritiSathi  
+**Problem Statement**: SIH26003 (Ministry of Development of North Eastern Region)  
+**Theme**: MedTech / BioTech / HealthTech  
 
 ---
 

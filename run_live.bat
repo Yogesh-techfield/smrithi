@@ -3,15 +3,14 @@ title SmritiSathi - Microservices & AWS EC2 Deployment
 color 0b
 
 echo ========================================================
-echo        SMRITISATHI - CLOUD & DEVOPS PROJECT (INT 378)
+echo        SMRITISATHI - COGNITIVE CARE PLATFORM
 echo ========================================================
-echo Student: Yogesh (12307093)
-echo Project: SIH26003 - Cognitive Care Platform for NER
-echo Owner Email: yogyatha12345@gmail.com
+echo Platform: AI-Based Memory Assistance for NER
+echo Owner: yogyatha12345@gmail.com
 echo ========================================================
 echo.
 
-cd /d "C:\Users\ASUS\.gemini\antigravity\scratch\smrithi"
+cd /d "%~dp0"
 
 echo [1/4] Checking Docker status...
 docker ps >nul 2>&1
