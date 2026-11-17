@@ -29,54 +29,7 @@ The system consists of independent microservices:
 
 ---
 
-## 3. How to Run Locally
-
-### Using Docker Compose
-```bash
-docker-compose up -d --build
-```
-Access the application:
-- Web Application: http://localhost
-- Auth Service: http://localhost:5000/health
-- Game Service: http://localhost:5001/health
-- Memory Service: http://localhost:5002/health
-
-### Running Services Directly with Python
-```bash
-pip install -r requirements.txt
-
-# Terminal 1: Auth Service
-python services/auth_service/app.py
-
-# Terminal 2: Game Service
-python services/game_service/app.py
-
-# Terminal 3: Memory Service
-python services/memory_service/app.py
-```
-
-### Running Unit Tests
-```bash
-pytest --cov=services tests/
-```
-
----
-
-## 4. Deploying to AWS EC2 via Terraform
-The project includes Infrastructure as Code (IaC) to launch the complete stack on AWS EC2 in region `ap-south-1`.
-
-### Step 1: Configure AWS CLI Credentials
-Login with your AWS account credentials (associated with `yogyatha12345@gmail.com`):
-```bash
-aws configure
-```
-Provide:
-- AWS Access Key ID
-- AWS Secret Access Key
-- Default region name: `ap-south-1`
-- Default output format: `json`
-
-### Step 2: Initialize & Apply Terraform
+###  Initialize & Apply Terraform
 ```bash
 cd terraform
 terraform init
@@ -87,14 +40,3 @@ After completion, Terraform will output the public IP and web URL of your EC2 in
 
 ---
 
-## 5. How to Push This Project to GitHub
-
-Initialize the repository and push:
-```bash
-git init
-git add .
-git commit -m "Initial commit of SmritiSathi project for INT 378 and SIH26003"
-git branch -M main
-git remote add origin https://github.com/<your-github-username>/smrithi.git
-git push -u origin main
-```
