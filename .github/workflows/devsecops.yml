@@ -1,0 +1,53 @@
+name: SmritiSathi DevSecOps Pipeline
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8 pytest pytest-cov bandit
+
+      - name: Code Quality & Lint
+        run: |
+          flake8 services/ --count --max-line-length=120 --statistics || true
+
+      - name: Run Unit Tests
+        run: |
+          pytest --cov=services tests/
+
+      - name: SAST Security Scan with Bandit
+        run: |
+          bandit -r services/ -ll || true
+
+      - name: Build Docker Images
+        run: |
+          docker build -f services/auth_service/Dockerfile -t smrithi-auth:latest .
+          docker build -f services/game_service/Dockerfile -t smrithi-game:latest .
+          docker build -f services/memory_service/Dockerfile -t smrithi-memory:latest .
+
+      - name: Trivy Container Vulnerability Scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'smrithi-game:latest'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: true
+          severity: 'CRITICAL,HIGH'

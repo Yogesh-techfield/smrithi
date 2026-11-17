@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmritiSathi - Cognitive Care Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <div class="brand-title">SmritiSathi (স্মৃতিসাথী)</div>
+            <div class="brand-sub">SIH26003 - Cognitive Care Platform for NER | Student: Yogesh (12307093)</div>
+        </div>
+        <nav class="nav-bar">
+            <button class="nav-btn active" onclick="switchView('games')">Games</button>
+            <button class="nav-btn" onclick="switchView('reminders')">Reminders</button>
+            <button class="nav-btn" onclick="switchView('memory')">Memory Graph</button>
+            <button class="nav-btn" onclick="switchView('caregiver')">Caregiver Portal</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="view-games" class="view-section active">
+            <div class="hero-box">
+                <h2 class="hero-title">Cognitive & Memory Exercises</h2>
+                <p style="font-size: 18px; color: #cbd5e1;">Select a game below. Adaptive AI automatically tunes the difficulty after each round.</p>
+                <div style="margin-top: 14px; display: flex; gap: 16px; align-items: center;">
+                    <span style="font-size: 16px;">Current Level: <strong id="lbl-level" style="color: #f97316; font-size: 22px;">1</strong></span>
+                    <button class="large-btn" style="padding: 8px 16px; font-size: 16px;" onclick="speakPrompt('Welcome to SmritiSathi. Choose a game to exercise your memory.')">Voice Assist</button>
+                </div>
+            </div>
+
+            <div class="game-grid" id="games-container"></div>
+
+            <div id="game-active-area" style="display: none; margin-top: 24px;">
+                <div class="play-box">
+                    <h3 id="active-game-title" style="font-size: 26px; color: #38bdf8;">Picture Match</h3>
+                    <p id="active-game-instruction" style="font-size: 18px; margin: 8px 0 16px 0;">Tap the matching pair of items below:</p>
+                    <div class="interactive-board" id="game-tiles"></div>
+                    <button class="large-btn" onclick="finishCurrentRound()">Complete Round</button>
+                    <div id="round-feedback" style="margin-top: 16px; font-size: 18px;"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-reminders" class="view-section">
+            <div class="hero-box">
+                <h2 class="hero-title">Medicine & Routine Reminders</h2>
+                <p style="font-size: 16px; color: #cbd5e1;">Reminders work 100% offline. Voice alerts notify patients at scheduled times.</p>
+            </div>
+            <div class="reminder-list" id="reminders-container"></div>
+        </section>
+
+        <section id="view-memory" class="view-section">
+            <div class="hero-box">
+                <h2 class="hero-title">Personal Memory Graph</h2>
+                <p style="font-size: 16px; color: #cbd5e1;">Graph of personal entities, family relationships, and locations.</p>
+                <div class="graph-box" id="graph-content">Loading memory graph...</div>
+            </div>
+        </section>
+
+        <section id="view-caregiver" class="view-section">
+            <div class="hero-box">
+                <h2 class="hero-title">Caregiver & Doctor Monitoring</h2>
+                <p style="font-size: 16px; color: #cbd5e1;">Automated alerts for missed medicines and cognitive score declines.</p>
+            </div>
+            <div id="caregiver-alerts-container"></div>
+            <div class="metric-panel">
+                <div class="metric-card">
+                    <div class="metric-val" id="metric-avg-score">0.76</div>
+                    <div class="metric-lbl">Target Success Ratio (75%)</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val" id="metric-sessions">4</div>
+                    <div class="metric-lbl">Total Sessions Completed</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-val" id="metric-alerts-count">1</div>
+                    <div class="metric-lbl">Active Clinical Alerts</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        INT 378: Advancements in Cloud and DevOps | Project: SmritiSathi (SIH26003) | LPU
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

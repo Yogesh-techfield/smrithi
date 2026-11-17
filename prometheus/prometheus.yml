@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'smrithi-auth-service'
+    static_configs:
+      - targets: ['auth-service:5000']
+
+  - job_name: 'smrithi-game-service'
+    static_configs:
+      - targets: ['game-service:5001']
+
+  - job_name: 'smrithi-memory-service'
+    static_configs:
+      - targets: ['memory-service:5002']
