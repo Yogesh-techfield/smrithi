@@ -1,8 +1,6 @@
 import sys
 import os
-sys.path.insert(0, os.path.abspath("services/auth_service"))
-sys.path.insert(0, os.path.abspath("services/game_service"))
-sys.path.insert(0, os.path.abspath("services/memory_service"))
+sys.path.insert(0, os.path.abspath("."))
 
 from services.auth_service.app import app as auth_app
 from services.game_service.app import app as game_app, evaluate_adaptive_engine
